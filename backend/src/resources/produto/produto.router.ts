@@ -1,12 +1,14 @@
 import { Router } from 'express';
+import checkAdmin from '../../middlewares/checkAdmin';
+import checkAuth from '../../middlewares/checkAuth';
 import produtoController from './produto.controller';
 
 const router = Router();
 
-router.get('/', produtoController.index);
-router.post('/', produtoController.create);
-router.get('/:id', produtoController.read);
-router.put('/:id', produtoController.update);
-router.delete('/:id', produtoController.remove);
+router.get('/', checkAuth, produtoController.index);
+router.post('/', checkAdmin, produtoController.create);
+router.get('/:id', checkAdmin, produtoController.read);
+router.put('/:id', checkAdmin, produtoController.update);
+router.delete('/:id', checkAdmin, produtoController.remove);
 
 export default router;
