@@ -4,12 +4,15 @@ import {
   getAllUsuarios,
   getUsuario,
   updateUsuario,
+  removeUsuario,
+  buscaUsuarioPorEmail
 } from './usuario.services';
 import { CreateUsuarioDto } from './usuario.types';
 
 const index = async (req: Request, res: Response) => {
   try {
-    const usuarios = await getAllUsuarios;
+    const usuarios = await getAllUsuarios();
+    console.log(usuarios)
     res.status(200).json({ usuarios });
   } catch (e) {
     res.status(500).json(e);
@@ -18,8 +21,14 @@ const index = async (req: Request, res: Response) => {
 const create = async (req: Request, res: Response) => {
   const usuario: CreateUsuarioDto = req.body;
   try {
+    const usuarioSearched = await buscaUsuarioPorEmail(usuario.email);
+    if (usuarioSearched)
+      res
+        .status(400)
+        .json({ msg: 'Já existe um usuário para o e-mail informado.' });
+
     const newUsuario = await createUsuario(usuario);
-    res.status(201).json(newUsuario.toJSON());
+    res.status(201).json(newUsuario);
   } catch (e) {
     res.status(500).json(e);
   }
@@ -47,6 +56,16 @@ const update = async (req: Request, res: Response) => {
     res.status(500).json(e);
   }
 };
-const remove = async (req: Request, res: Response) => {};
+const remove = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  try {
+    const isRemovedUsuario = await removeUsuario(id);
+    if (!isRemovedUsuario)
+      res.status(400).json({ msg: 'Não existe usuário com id informado.' });
+    else res.status(200).json({ msg: 'Usuário removido com sucesso.' });
+  } catch (e) {
+    res.status(500).json(e);
+  }
+};
 
 export default { index, create, read, update, remove };

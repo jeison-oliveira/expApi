@@ -25,3 +25,8 @@ export const updateProduto = async (
   const [affectedCount] = await Produto.update(produto, { where: { id } });
   return affectedCount;
 };
+
+export const removeProduto = async (id: string): Promise<boolean> => {
+  const removedProduto = await Produto.destroy({ where: { id } });
+  return !!removedProduto;
+};
