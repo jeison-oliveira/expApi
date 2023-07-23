@@ -16,6 +16,7 @@ import setLocals from './middlewares/setLocals';
 import cookieParser from 'cookie-parser';
 import session from 'express-session';
 import { v4 as uuidv4 } from 'uuid';
+import cors from 'cors';
 
 const models = [VersaoDB, Usuario, TipoUsuario, Produto, Compra, CompraItem];
 
@@ -50,6 +51,17 @@ export class Api {
   }
 
   private async middleware() {
+    // Add a list of allowed origins.
+    // If you have more origins you would like to add, you can add them to the array below.
+    const allowedOrigins = ['http://localhost:3366', 'http://localhost:3000'];
+
+    const options: cors.CorsOptions = {
+      origin: allowedOrigins,
+    };
+
+    // Then pass these options to cors:
+    this.server.use(cors(options));
+
     this.server.use(express.json());
     this.server.use(cookieParser());
     this.server.use(setLocals);
