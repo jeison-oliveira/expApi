@@ -1,16 +1,5 @@
 const ShoppingCart = (props) => {
   const { cartProducts, removeFromCart } = props;
-  // let cards = (
-  //   <div className="card rounded-3 mb-4">
-  //     <div className="card-body p-4">
-  //       <div className="row d-flex justify-content-between align-items-center">
-  //         <div className="col-md-12 col-lg-2 col-xl-2">
-  //           <p>Seu carrinho está vazio.</p>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   </div>
-  // );
   let cards = (
     <div className="card rounded-3 mb-4">
       <div className="card-body p-4">
@@ -20,7 +9,7 @@ const ShoppingCart = (props) => {
       </div>
     </div>
   );
-  console.log(cartProducts);
+  // console.log(cartProducts);
   if (cartProducts.length !== 0) {
     console.log("entrou aqui");
     cards = cartProducts.map((produto, index) => {
@@ -30,18 +19,18 @@ const ShoppingCart = (props) => {
             <div className="row d-flex justify-content-between align-items-center">
               <div className="col-md-2 col-lg-2 col-xl-2">
                 <img
-                  src={produto.url}
+                  src="https://amopaocaseiro.com.br/wp-content/uploads/2022/08/yt-069_pao-de-queijo_receita.jpg"
                   className="img-fluid rounded-3"
                   alt={produto.name}
                 />
               </div>
               <div className="col-md-3 col-lg-3 col-xl-3">
-                <p className="lead fw-normal mb-2">{produto.name}</p>
+                <p className="lead fw-normal mb-2">{produto.nome}</p>
               </div>
               <div className="col-md-3 col-lg-3 col-xl-2 d-flex">
                 <button
                   className="btn btn-link px-2"
-                  onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                  onClick="this.parentNode.querySelector('input[type=number]').stepDown()"
                 >
                   <i className="bi bi-dash-circle-fill"></i>
                 </button>
@@ -50,20 +39,20 @@ const ShoppingCart = (props) => {
                   id="form1"
                   min="0"
                   name="quantity"
-                  defaultValue="1"
+                  defaultValue={produto.estoque}
                   type="number"
                   className="form-control form-control-sm"
                 />
 
                 <button
                   className="btn btn-link px-2"
-                  onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                  onClick="this.parentNode.querySelector('input[type=number]').stepUp()"
                 >
-                  <i class="bi bi-plus-circle-fill"></i>
+                  <i className="bi bi-plus-circle-fill"></i>
                 </button>
               </div>
               <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                <h5 className="mb-0">{produto.price}</h5>
+                <h5 className="mb-0">{produto.preco}</h5>
               </div>
               <div className="col-md-1 col-lg-1 col-xl-1 text-end">
                 <a
@@ -71,7 +60,7 @@ const ShoppingCart = (props) => {
                   className="text-danger"
                   onClick={() => removeFromCart(index)}
                 >
-                  <i class="bi bi-trash-fill"></i>
+                  <i className="bi bi-trash-fill"></i>
                 </a>
               </div>
             </div>
@@ -106,7 +95,7 @@ const ShoppingCart = (props) => {
                     id="form1"
                     className="form-control form-control-lg"
                   />
-                  <label className="form-label" for="form1">
+                  <label className="form-label" htmlFor="form1">
                     Discound code
                   </label>
                 </div>

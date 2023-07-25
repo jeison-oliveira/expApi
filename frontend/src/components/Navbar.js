@@ -1,11 +1,13 @@
-const Navbar = (props) => {
-  const { setPage } = props;
+import React from "react";
+import { NavLink, Link } from "react-router-dom";
+
+const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#!" onClick={() => setPage("home")}>
+        <NavLink to="/" className="navbar-brand" href="#!">
           Loja Virtual
-        </a>
+        </NavLink>
         <button
           className="navbar-toggler"
           type="button"
@@ -23,7 +25,6 @@ const Navbar = (props) => {
               <a
                 className="nav-link dropdown-toggle"
                 href="#!"
-                onClick={() => setPage("home")}
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
@@ -32,69 +33,64 @@ const Navbar = (props) => {
               </a>
               <ul className="dropdown-menu">
                 <li>
-                  <a
-                    className="dropdown-item"
-                    href="#!"
-                    onClick={() => setPage("home")}
-                  >
+                  <Link to="produto/create" className="dropdown-item" href="#!">
                     Cadastrar
-                  </a>
+                  </Link>
                 </li>
+                {/*
                 <li>
                   <hr className="dropdown-divider" />
                 </li>
                 <li>
-                  <a
-                    className="dropdown-item"
-                    href="#!"
-                    onClick={() => setPage("home")}
-                  >
+                  <Link className="dropdown-item" href="#!">
                     Editar
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <hr className="dropdown-divider" />
                 </li>
                 <li>
-                  <a
-                    className="dropdown-item"
-                    href="#!"
-                    onClick={() => setPage("home")}
-                  >
+                  <Link className="dropdown-item" href="#!">
                     Deletar
-                  </a>
+                  </Link>
+                </li> */}
+                <li>
+                  <hr className="dropdown-divider" />
+                </li>
+                <li>
+                  <Link to="produto/list" className="dropdown-item" href="#!">
+                    Listar
+                  </Link>
                 </li>
               </ul>
             </li>
             <li className="nav-item">
-              <a
+              <NavLink
                 className="nav-link active"
                 aria-current="page"
                 href="#!"
-                onClick={() => setPage("home")}
               >
                 Login
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a
+              <NavLink
                 className="nav-link active"
                 aria-current="page"
                 href="#!"
-                onClick={() => setPage("home")}
               >
                 Signup
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a
+              <NavLink
+                to="carrinho"
                 className="nav-link active"
                 aria-current="page"
                 href="#!"
-                onClick={() => setPage("shoppingCart")}
               >
                 Carrinho
-              </a>
+              </NavLink>
             </li>
           </ul>
         </div>
@@ -102,4 +98,5 @@ const Navbar = (props) => {
     </nav>
   );
 };
+
 export default Navbar;

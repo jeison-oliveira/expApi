@@ -4,19 +4,20 @@ import {
   getAllProdutos,
   getProduto,
   updateProduto,
-  removeProduto
+  removeProduto,
 } from './produto.services';
 import { CreateProdutoDto } from './produto.types';
 
 const index = async (req: Request, res: Response) => {
   try {
-    const produtos = await getAllProdutos;
+    const produtos = await getAllProdutos();
     res.status(200).json({ produtos });
   } catch (e) {
     res.status(500).json(e);
   }
 };
 const create = async (req: Request, res: Response) => {
+  // console.log(req);
   const produto: CreateProdutoDto = req.body;
   try {
     const newProduto = await createProduto(produto);

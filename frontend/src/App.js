@@ -1,18 +1,18 @@
 import { Component } from "react";
 import Navbar from "./components/Navbar";
-import Content from "./components/Content";
+import Routes from "./components/Routes";
 class App extends Component {
   state = {
     page: "home",
     cartProducts: [],
   };
 
-  setPage = (page) => {
-    console.log(page);
-    this.setState({
-      page: page,
-    });
-  };
+  // add = (produto) => {
+  //   const { produtos } = this.state;
+  //   this.setState({
+  //     produtos: [...produtos, produto],
+  //   });
+  // };
 
   addToCart = (produto) => {
     const { cartProducts } = this.state;
@@ -32,48 +32,17 @@ class App extends Component {
   };
 
   render() {
-    const produtos = [
-      {
-        name: "Pão de Queijo",
-        price: "R$ 5,99/kg",
-        url: "https://amopaocaseiro.com.br/wp-content/uploads/2022/08/yt-069_pao-de-queijo_receita.jpg",
-      },
-      {
-        name: "Pão de Queijo",
-        price: "R$ 5,99/kg",
-        url: "https://amopaocaseiro.com.br/wp-content/uploads/2022/08/yt-069_pao-de-queijo_receita.jpg",
-      },
-      {
-        name: "Pão de Queijo",
-        price: "R$ 5,99/kg",
-        url: "https://amopaocaseiro.com.br/wp-content/uploads/2022/08/yt-069_pao-de-queijo_receita.jpg",
-      },
-      {
-        name: "Pão de Queijo",
-        price: "R$ 5,99/kg",
-        url: "https://amopaocaseiro.com.br/wp-content/uploads/2022/08/yt-069_pao-de-queijo_receita.jpg",
-      },
-      {
-        name: "Pão de Queijo",
-        price: "R$ 5,99/kg",
-        url: "https://amopaocaseiro.com.br/wp-content/uploads/2022/08/yt-069_pao-de-queijo_receita.jpg",
-      },
-      {
-        name: "Pão de Queijo",
-        price: "R$ 5,99/kg",
-        url: "https://amopaocaseiro.com.br/wp-content/uploads/2022/08/yt-069_pao-de-queijo_receita.jpg",
-      },
-    ];
     return (
-      <div className="container text-center">
-        <Navbar setPage={this.setPage} />
-        <Content
-          page={this.state.page}
-          produtos={produtos}
-          addToCart={this.addToCart}
-          removeFromCart={this.removeFromCart}
-          cartProducts={this.state.cartProducts}
-        />
+      <div className="App">
+        <div className="container text-center">
+          <Navbar />
+          <Routes
+            cartProducts={this.state.cartProducts}
+            addToCart={this.addToCart}
+            removeFromCart={this.removeFromCart}
+            add={this.add}
+          />
+        </div>
       </div>
     );
   }

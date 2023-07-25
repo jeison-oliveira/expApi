@@ -57,6 +57,7 @@ export class Api {
 
     const options: cors.CorsOptions = {
       origin: allowedOrigins,
+      credentials: true, //access-control-allow-credentials:true
     };
 
     // Then pass these options to cors:

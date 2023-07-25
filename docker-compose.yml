@@ -9,27 +9,28 @@ services:
     volumes:
       - ./backend:/usr/src/app
     env_file: ./backend/.env
-  frontend:
-    container_name: loja_frontend
-    build:
-      context: ./frontend
-    ports:
-      - ${PORT_FRONT}:${PORT_FRONT}
-    volumes:
-      - ./frontend:/usr/src/app
-    env_file: ./frontend/.env
+  # frontend:
+  #   container_name: loja_frontend
+  #   build:
+  #     context: ./frontend
+  #   restart: on-failure
+  #   ports:
+  #     - ${PORT_FRONT}:${PORT_FRONT}
+  #   volumes:
+  #     - ./frontend:/usr/src/app
+  #   env_file: ./frontend/.env
 
-  db_test:
-    image: mysql:8.0
-    container_name: loja_db
-    ports:
-      - ${PORT_MYSQL_TEST}:3306
-    environment:
-      - MYSQL_DATABASE=${MYSQL_DATABASE_TEST}
-      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD_TEST}
-    volumes:
-      - mysql_test:/var/lib/mysql
-      - mysql_config_test:/etc/mysql    
+  # db_test:
+  #   image: mysql:8.0
+  #   container_name: loja_db
+  #   ports:
+  #     - ${PORT_MYSQL_TEST}:3306
+  #   environment:
+  #     - MYSQL_DATABASE=${MYSQL_DATABASE_TEST}
+  #     - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD_TEST}
+  #   volumes:
+  #     - mysql_test:/var/lib/mysql
+  #     - mysql_config_test:/etc/mysql    
   db:
     image: mysql:8.0
     container_name: loja_db_test
