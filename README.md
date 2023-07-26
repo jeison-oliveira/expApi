@@ -78,19 +78,19 @@ cd expApi
 git checkout feature/crudProduto
 ```
 
-- Copiar o dódigo das variáveis de ambiente do arquivo de exemplo a serem usada no Docker Compose:
+- Copiar o dódigo das variáveis de ambiente do arquivo de exemplo a serem usadas no Docker Compose:
 
 ```sh
 cp .env.example .env
 ```
 
-- Copiar o dódigo das variáveis de ambiente do arquivo de exemplo a serem usada no frontend:
+- Copiar o dódigo das variáveis de ambiente do arquivo de exemplo a serem usadas no frontend:
 
 ```sh
 cp frontend/.env.example frontend/.env
 ```
 
-- Copiar o dódigo das variáveis de ambiente do arquivo de exemplo a serem usada no backend:
+- Copiar o dódigo das variáveis de ambiente do arquivo de exemplo a serem usadas no backend:
 
 ```sh
 cp backend/.env.example backend/.env
