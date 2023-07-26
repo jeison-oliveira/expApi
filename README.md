@@ -140,8 +140,6 @@ docker compose up -d
 http://localhost:3366/
 ```
 
-Após isso será poss
-
 # Tecnologias
 
 - **Docker** - Ambiente que possibiliza a conteinerização dos ambientes
