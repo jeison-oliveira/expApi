@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { checkCredentials } from './auth.services';
+import { checkCredentials, checkIsAdmin } from './auth.services';
 import {
   createUsuario,
   buscaUsuarioPorEmail,
@@ -36,7 +36,12 @@ const login = async (req: Request, res: Response) => {
         .json({ msg: 'O e-mail e/ou a senha estão incorretos.' });
     req.session.uid = usuario.id;
     req.session.tipoUsuarioId = usuario.tipoUsuarioId;
-    res.status(200).json({ msg: 'Usuário logado.' });
+    res.status(200).json({
+      //NEW CODE
+      isAdmin: await checkIsAdmin(usuario.id),
+      // ------
+      msg: 'Usuário logado.',
+    });
   } catch (e) {
     res.status(500).json(e);
   }

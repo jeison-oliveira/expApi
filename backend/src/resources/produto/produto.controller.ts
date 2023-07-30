@@ -11,7 +11,7 @@ import { CreateProdutoDto } from './produto.types';
 const index = async (req: Request, res: Response) => {
   try {
     const produtos = await getAllProdutos();
-    res.status(200).json({ produtos });
+    res.status(200).json(produtos);
   } catch (e) {
     res.status(500).json(e);
   }

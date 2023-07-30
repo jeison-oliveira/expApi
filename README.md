@@ -3,52 +3,52 @@
 ## Repositório
 
 ```sh
-https://github.com/jeison-oliveira/expApi/tree/feature/crudProduto
+https://github.com/jeison-oliveira/expApi/tree/feature/redux
 ```
 
 # Descrição da Atividade
 
-Desenvolva os formulários de criação, edição e delação de produtos utilizando hooks e a biblioteca axios.
-
-## O que deve ser enviado?
-
-- O link de um vídeo de até 1 minuto gravado com a ferramenta Loom, onde você se apresenta e explica o funcionamento do código e os passos executados para a resolução da tarefa.
-
-- Um relatório legível contendo os commits executados e comentados, isto é, o trace executado na tarefa.
-
-- Deve ser dado permissão de acesso ao seu repositório Git para os usuários natacshamelo e julianaCastro.
-
-## Critérios de Avaliação - 10,0 pontos:
-
-- Legibilidade: As outras pessoas conseguem entender o que foi feito. (1,0 ponto)
-- Corretude: Seguir os critérios da tarefa e estar funcionando! (4,5 pontos)
-- Completude: Cumprir todos os requisitos da tarefa! (4,5 pontos)
+Nesta atividade, você deverá aprimorar o projeto frontend desenvolvido em aula, melhorando a
+interface e adicionando novas funcionalidades ao carrinho de compras. Sempre que possível,
+utilize o Gerenciamento de Estados Redux.
+O projeto frontend que servirá de base está disponível em:
+https://github.com/DouglasSM747/aula-redux-webacademy.git
+Além disso, certifique-se de acessar o código atualizado do backend, que resolve a questão do
+"cors" e retorna o dado "isAdmin". Esse código pode ser encontrado no repositório:
+https://github.com/DouglasSM747/aula-redux-backend.git . Adicione as mudanças realizadas
+nesse projeto ao seu próprio projeto, mas não utilize esse repositório como base do curso. Os
+trechos de código que devem ser inseridos estão identificados com o comentário: "NEW CODE".
+Especificações:
+Em relação à interface, as seguintes mudanças são obrigatórias:
+• Estilização do componente NavBar.
+• Estilização do componente de Inserção de Produtos (Quando o usuário logado for
+administrador).
+• Quando o usuário logado for administrador, deve ser mostrada a tabela de produtos,
+como está atualmente. Porém, quando o usuário logado for cliente, ele deve visualizar
+os produtos em formato de Grid Card, exemplo da figura 1, mostrando todas as
+informações do produto e um botão para inserir o produto no carrinho.
+Figura 1 Exemplo de Grid Card de produtos
+Em relação ao carrinho, as seguintes implementações devem ser feitas:
+• Ao lado do texto/ícone do carrinho no Navbar, deve ser mostrada a quantidade de itens
+no carrinho.
+• Na tela do carrinho, os produtos inseridos devem ser listados, juntamente com suas
+informações, tais como nome/preço do produto, a quantidade de vezes que o produtofoi inserido, o preço total do produto (Quantidade x Preço do produto) e o preço final da
+compra.
+• O usuário deve ser capaz de incrementar ou decrementar a quantidade de um produto,
+além de conseguir remover um produto do carrinho. Utilizem como base a figura abaixo.
+• Caso o usuário tente inserir uma quantidade de produtos maior que a disponível no
+estoque, deve ser exibido um alerta.
+Figura 2 Exemplo da listagem de produtos no carrinho
+Entrega:
+Você deverá gravar um vídeo curto, com duração máxima de 5 minutos, demonstrando o
+funcionamento do aplicativo desenvolvido. Além disso, explique como o código foi organizado e
+desenvolvido. O código-fonte deve ser hospedado no github, e o link para acesso deve ser
+disponibilizado no comentário da atividade.
+Caso tenha dúvidas, não hesite em entrar em contato.
 
 # Vídeo Explicativo
 
-- [Loom](https://www.loom.com/embed/1b7fd39e32d34f8ba018603b0b944e78?sid=5f462756-ea3b-45c8-87b9-5033c240508b)
-
-# Relatório dos Commits
-
-### Commits anteriores
-
-Como esse código havia sido realizados na disciplina de Restful APIs há alguns commits anteriores referentes a essa disciplina na branch main.
-
-### Issue: CRUD de Produtos com Hooks e Axios
-
-Primeiro passo foi criar uma Issue no GitHub solicitando o desenvovimento dos formulários de criação, edição e delação de produtos utilizando Hooks e a biblioteca Axios. A partir desta Issue foi criada a branch feature/crudProduto.
-
-### Adição do código do Carrinho de Compras(9436c6bf16b7e584d5a1f76514b235e5fff26225)
-
-Primeiro commit, após a criação da branch feature/crudProduto. Neste commit foi portado todo o código do carrinho de compras desenvolvido nas atividades anteriores para o repositório [expApi](https://github.com/jeison-oliveira/expApi/tree/feature/crudProduto) utilizado nas disciplinas anteriores.
-
-### CRUD Completo do Produto (20b98082d3516d0c0a14b676e3761a13cffa4fd4)
-
-Finalizada a criação dos formulários e CRUD com Axios.
-
-### Adicionando o relatório e outras instruções no README.md
-
-Commits realizados após o fim da atividade de criação do relatório em formato de README.md.
+- [Loom](https://www.loom.com/embed/34bc45467c584a0ebe763a6d298dbb4a?sid=4327d597-e31f-41bd-a238-4b6bd999d4b9)
 
 # Começando
 
@@ -75,7 +75,7 @@ cd expApi
 - No terminal, digite o seguinte comando para mudar da branch **main** para a **feature/crudProduto**:
 
 ```sh
-git checkout feature/crudProduto
+git checkout feature/redux
 ```
 
 - Copiar o dódigo das variáveis de ambiente do arquivo de exemplo a serem usadas no Docker Compose:
@@ -118,7 +118,7 @@ Windows:
 cd backend ; npm install ; cd ..
 ```
 
-Unix-like Systems::
+Unix-like Systems:
 
 ```sh
 cd backend && npm install && cd ..
@@ -151,7 +151,6 @@ http://localhost:3366/
 
 - [@jeison-oliveira](https://github.com/jeison-oliveira)
 
-# Colaboradoras
+# Professor
 
-- [@natacshamelo](https://github.com/natacshamelo)
-- [@julianaCastro](https://github.com/julianaCastro)
+- [@DouglasSM747](https://github.com/DouglasSM747)
